@@ -1,18 +1,18 @@
 <script lang="ts">
     import { contactOptions } from "./contactOptions.svelte";
-
+    import { profileData } from "./data"; 
 </script>
 
 
 
-<div class="main">
-    <img src="src/assets/jiri.jpeg" alt="image of ">
+<div class="main" >
+    <img src={profileData.profileURL} alt="image of " >
     <div class="flex-column">
         <h2>
-            Jiri Beurskens
+            {profileData.firstname} {profileData.lastname}
         </h2>
         <h4>
-            Born 2004 | 19
+            Born {profileData.birthDate.getFullYear()} | {new Date().getFullYear() - profileData.birthDate.getFullYear()}
         </h4>
     </div>
     <div class="contacts flex-wrapped">
@@ -21,7 +21,6 @@
             <a href={co.url} target="_blank" class="icon">
                 <!-- <span class="iconify-inline" data-icon={co.icon}></span> -->
                 <img src={co.icon} alt={co.platform}>
-                
             </a>
         </div>
         {/each}
@@ -30,6 +29,7 @@
 
 <style lang="scss">
     .main {
+       // visibility:hidden;
         display: flex;
         flex-direction: row;
 
@@ -39,6 +39,10 @@
 
         padding: 5px 10px 5px 5px;
         margin: 10px 0px 0px 10px;
+
+        // @media (max-width: 1023px) {
+        //     visibility: visible;
+        // }
 
         img {
             height: 72px;

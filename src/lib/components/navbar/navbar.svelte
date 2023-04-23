@@ -1,5 +1,6 @@
 <script lang="ts">
     import { activePage, pageId,pageSwaps } from "../../../store";
+    import Home from "../pages/home.svelte";
     import { navOptions } from "./pageOptions.svelte";
     import Profile from "./profile.svelte";
 
@@ -111,7 +112,7 @@
             }
         }
         // Everything that needs to look like from Tablet view and down
-        @media (max-width: 768px) {
+        @media (max-width: 960px) {
             margin-left: 0%;
             margin-right:  0%;
 
