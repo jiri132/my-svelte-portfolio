@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { contactOptions } from "./contactOptions.svelte";
+    import Icon from "@iconify/svelte";
+import { contactOptions } from "./contactOptions.svelte";
     import { profileData } from "./data"; 
 </script>
 
@@ -16,14 +17,23 @@
         </h4>
     </div>
     <div class="contacts flex-wrapped">
-        {#each contactOptions as co, i }
-        <div>
+        <a href="https://github.com/jiri132" target="_blank" class="icon">
+            <Icon icon="link:github" />
+          </a>
+          <a href="mailto: jiri28beurskens@gmail.com" target="_blank" class="icon">
+            <Icon icon="link:gmail" />
+          </a>
+          <a href="https://www.linkedin.com/in/jiri-beurskens-527598213/" target="_blank" class="icon">
+            <Icon icon="link:linkedin" />
+          </a>
+        <!-- {#each contactOptions as co, i }
+        
             <a href={co.url} target="_blank" class="icon">
                 <!-- <span class="iconify-inline" data-icon={co.icon}></span> -->
-                <img src={co.icon} alt={co.platform}>
+                <!--<Icon icon={ 'link:' + co.platform } stroke="none"/>
             </a>
-        </div>
-        {/each}
+        
+        {/each} -->
     </div>
 </div>
 
@@ -84,14 +94,19 @@
                 border-radius: 7px;
                 
             }
-            .icon {
-                width: 30px;
-                height: 30px;
+            
 
-                background-color: rgb(184, 184, 184);
+            .icon {
+                // width: 30px;
+                // height: 30px;
+
+                //background-color: rgb(184, 184, 184);
                 //padding-top: 10px;
-                padding: 13px 5px 3px 5px;
+                padding: 5px 5px 3px 5px;
                 margin-left: 5px;
+
+                text-decoration: none;
+                color: white;
 
                 margin-bottom: 5px;
                 border: 0px solid gray;
@@ -99,7 +114,7 @@
                 align-content: center;
             }
             .icon:hover {
-                background-color: white;
+                //background-color: white;
                 border: 1px solid rgb(107, 107, 107);
             }
             @media (min-width: 410px) {
