@@ -1,10 +1,7 @@
 <script lang="ts">
     import { activePage, pageId,pageSwaps } from "../../../store";
-    import Home from "../pages/home.svelte";
     import { navOptions } from "./pageOptions.svelte";
     import Profile from "./profile.svelte";
-
-    const webpage = document.URL;
 
     let selectedID : number = 0;
     pageId.subscribe(value => {
@@ -24,11 +21,15 @@
     const screenWidth : number = window.screen.width;
     let icons : boolean = false;
 
-    if (screenWidth <= 425) {
-        icons = true;
-    }
+    // if (screenWidth <= 425) {
+    //     icons = true;
+    // }
 
 
+    import loadLinkIcons from "../pages/projectComponents/projects/icons.link";
+  import loadLangIcons from "../pages/projectComponents/projects/icon.lang";
+  loadLinkIcons();
+    loadLangIcons();
 </script>
 
 <main>
@@ -64,6 +65,7 @@
         margin-left: 10%;
         margin-right:  10%;
         ul {
+            z-index: 3;
                 // For an active element
             .active {
                 border: 2px solid blue;
@@ -71,11 +73,17 @@
             }
                 // Standard buttons lay-out
             button {
+                scale: 1;
                 opacity: 0.6;
                 margin-left: 5px;
+                
                 background-color: transparent;
 
                 transition: opacity 0.15s ease, border-color 0.15s ease;
+
+                @media (max-width: 440px) {
+                    scale: 1.2;
+                }
             }
                 // Button hover override
             button:hover {
@@ -83,7 +91,8 @@
             }
                 // Standard Image styling
             img {
-                max-width: 50px;
+                max-width: 30px;
+                filter: brightness(0) invert(1);
             }
         }
         a {
@@ -96,10 +105,10 @@
         }
 
         // ONLY Mobile view
-        @media (max-width: 425px) {
+        @media (max-width: 426px) {
             ul {
                 button {
-                    font-size: 10px;
+                    font-size: 12px;
                 }
             }
         }
