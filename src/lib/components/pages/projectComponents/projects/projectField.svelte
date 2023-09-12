@@ -1,13 +1,11 @@
 <script lang="ts">
-  import loadLinkIcons from "./icons.link";
-  import loadLangIcons from "./icon.lang";
+
     import { onMount } from "svelte/internal";
     import ProjectCard from "./projectCard.svelte";
     import { projects, projectList } from "./projects";
     import type { Project } from "./project";
 
-    loadLinkIcons();
-    loadLangIcons();
+    
     $: project = <Array<Project>>[];
 
     function getProjects() : void {
